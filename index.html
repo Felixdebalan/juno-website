@@ -3,54 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juno | AI Voice Agents for Multi-Location Businesses</title>
+    <title>Juno | Bespoke AI Voice for Luxury Enterprise</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: sans-serif; }
-        .hero-gradient { background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); }
+        body { background-color: #030303; color: #f4f4f4; font-family: 'Georgia', serif; }
+        .hero-gradient { background: radial-gradient(circle at top, #111 0%, #030303 100%); }
+        .gold-text { background: linear-gradient(90deg, #d4af37, #f4e0af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body>
-    <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter">JUNO</div>
-        <a href="#contact" class="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">Contact Us</a>
+    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto">
+        <div class="text-3xl font-light tracking-[0.2em] uppercase gold-text">JUNO</div>
+        <a href="#contact" class="border border-zinc-700 px-6 py-2 rounded-sm text-sm tracking-widest uppercase hover:bg-white hover:text-black transition duration-500">Inquire</a>
     </nav>
 
-    <header class="hero-gradient pt-24 pb-20 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">The Voice of Your <br><span class="text-gray-500 text-4xl md:text-6xl">Multi-Location Empire.</span></h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">High-fidelity voice agents for Coffee Shops, Hotels, and Fitness Centers.</p>
+    <header class="hero-gradient pt-32 pb-20 px-6 text-center">
+        <h1 class="text-5xl md:text-8xl font-light mb-8 tracking-tight">Elegance at <span class="italic font-serif">Scale.</span></h1>
+        <p class="text-xl text-zinc-500 max-w-2xl mx-auto mb-12 font-sans tracking-wide">
+            High-fidelity AI voice agents tailored for Luxury Hotels, High-End Retail, and Private Membership Clubs.
+        </p>
     </header>
 
-    <section class="py-12 bg-zinc-950 border-y border-zinc-900">
+    <section class="max-w-6xl mx-auto px-6 mb-32">
+        <div class="relative rounded-lg border border-zinc-800 p-2 bg-zinc-900 shadow-2xl">
+             <video controls autoplay muted loop class="w-full rounded shadow-inner aspect-video object-cover">
+                <source src="kling-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-950 border-y border-zinc-900">
         <div class="max-w-6xl mx-auto px-6">
-            <p class="text-center text-zinc-500 uppercase tracking-widest text-xs mb-8">Trusted by industry leaders in</p>
-            <div class="flex flex-wrap justify-center gap-10 opacity-60 text-lg font-semibold grayscale">
-                <span>☕️ QSR & COFFEE</span>
-                <span>🏨 LUXURY HOTELS</span>
-                <span>💪 FITNESS CENTERS</span>
-                <span>🛍️ RETAIL STORES</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+                <div>
+                    <h3 class="text-xs tracking-[0.3em] uppercase gold-text mb-4">Hospitality</h3>
+                    <p class="text-2xl font-light italic">Luxury Hotels & Resorts</p>
+                </div>
+                <div>
+                    <h3 class="text-xs tracking-[0.3em] uppercase gold-text mb-4">Retail</h3>
+                    <p class="text-2xl font-light italic">Boutique Flagship Stores</p>
+                </div>
+                <div>
+                    <h3 class="text-xs tracking-[0.3em] uppercase gold-text mb-4">Membership</h3>
+                    <p class="text-2xl font-light italic">Private Clubs & Estates</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
-        <div class="bg-zinc-900 p-8 md:p-12 rounded-3xl border border-zinc-800">
-            <h2 class="text-3xl font-bold mb-2">Request a Demo</h2>
-            <p class="text-zinc-400 mb-8">Ready to scale? Send a request and we'll be in touch within 24 hours.</p>
-            
-            <form action="https://formspree.io/f/YOUR_EMAIL" method="POST" class="space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" name="company" placeholder="Company Name" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required>
-                    <input type="email" name="email" placeholder="Work Email" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required>
-                </div>
-                <textarea name="message" rows="4" placeholder="How many locations are we automating?" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required></textarea>
-                <button type="submit" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-zinc-200 transition">Send Request</button>
-            </form>
+    <section id="contact" class="py-32 px-6 max-w-2xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-light mb-4">Private Consultation</h2>
+            <p class="text-zinc-500 font-sans uppercase tracking-widest text-xs">By Invitation Only</p>
         </div>
+        
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-10">
+            <input type="text" name="name" placeholder="Name" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition" required>
+            <input type="email" name="email" placeholder="Professional Email" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition" required>
+            <textarea name="message" rows="3" placeholder="Tell us about your locations" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition"></textarea>
+            <button type="submit" class="w-full bg-white text-black py-5 tracking-[0.2em] uppercase text-sm font-bold hover:bg-zinc-200 transition">Submit Request</button>
+        </form>
     </section>
 
-    <footer class="py-12 text-center text-zinc-600 text-sm">
-        &copy; 2026 Juno AI Integration Agency.
+    <footer class="py-16 text-center text-zinc-700 text-xs tracking-[0.4em] uppercase">
+        Juno &copy; 2026 | All Rights Reserved.
     </footer>
 </body>
 </html>
