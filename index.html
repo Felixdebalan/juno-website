@@ -6,57 +6,51 @@
     <title>Juno | AI Voice Agents for Multi-Location Businesses</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; }
+        body { background-color: #050505; color: #ffffff; font-family: sans-serif; }
         .hero-gradient { background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); }
     </style>
 </head>
 <body>
     <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter text-white">JUNO</div>
-        <a href="#demo" class="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">Get Started</a>
+        <div class="text-2xl font-bold tracking-tighter">JUNO</div>
+        <a href="#contact" class="bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-gray-200 transition">Contact Us</a>
     </nav>
 
-    <header class="hero-gradient pt-24 pb-32 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">The Voice of Your <br><span class="text-gray-500">Global Operations.</span></h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-            Automated, high-fidelity AI voice agents for coffee shops, fitness centers, and luxury hotels. Scalable across 100+ locations.
-        </p>
-        <div class="flex justify-center gap-4">
-            <a href="#demo" class="bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-500 transition">View Demo</a>
-        </div>
+    <header class="hero-gradient pt-24 pb-20 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">The Voice of Your <br><span class="text-gray-500 text-4xl md:text-6xl">Multi-Location Empire.</span></h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">High-fidelity voice agents for Coffee Shops, Hotels, and Fitness Centers.</p>
     </header>
 
-    <section id="demo" class="max-w-5xl mx-auto py-20 px-6">
-        <div class="rounded-3xl border border-gray-800 overflow-hidden bg-black aspect-video flex items-center justify-center">
-            <video controls class="w-full h-full object-cover">
-                <source src="your-video-link.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <section class="py-20 bg-zinc-950">
+    <section class="py-12 bg-zinc-950 border-y border-zinc-900">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Engineered for Scale</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-8 border border-gray-800 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-2">QSR & Coffee</h3>
-                    <p class="text-gray-500">Handle peak hour rushes and complex orders without missing a single beat.</p>
-                </div>
-                <div class="p-8 border border-gray-800 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-2">Fitness & Retail</h3>
-                    <p class="text-gray-500">Automate bookings, membership questions, and appointment scheduling.</p>
-                </div>
-                <div class="p-8 border border-gray-800 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-2">Luxury Hotels</h3>
-                    <p class="text-gray-500">Provide 24/7 concierge-level voice support in multiple languages.</p>
-                </div>
+            <p class="text-center text-zinc-500 uppercase tracking-widest text-xs mb-8">Trusted by industry leaders in</p>
+            <div class="flex flex-wrap justify-center gap-10 opacity-60 text-lg font-semibold grayscale">
+                <span>☕️ QSR & COFFEE</span>
+                <span>🏨 LUXURY HOTELS</span>
+                <span>💪 FITNESS CENTERS</span>
+                <span>🛍️ RETAIL STORES</span>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-900 text-center text-gray-600">
-        <p>&copy; 2026 Juno AI Integration Agency. All Rights Reserved.</p>
+    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="bg-zinc-900 p-8 md:p-12 rounded-3xl border border-zinc-800">
+            <h2 class="text-3xl font-bold mb-2">Request a Demo</h2>
+            <p class="text-zinc-400 mb-8">Ready to scale? Send a request and we'll be in touch within 24 hours.</p>
+            
+            <form action="https://formspree.io/f/YOUR_EMAIL" method="POST" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" name="company" placeholder="Company Name" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required>
+                    <input type="email" name="email" placeholder="Work Email" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required>
+                </div>
+                <textarea name="message" rows="4" placeholder="How many locations are we automating?" class="w-full bg-black border border-zinc-800 p-4 rounded-xl focus:border-white outline-none" required></textarea>
+                <button type="submit" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-zinc-200 transition">Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-zinc-600 text-sm">
+        &copy; 2026 Juno AI Integration Agency.
     </footer>
 </body>
 </html>
