@@ -9,21 +9,81 @@
         body { background-color: #030303; color: #f4f4f4; font-family: 'Georgia', serif; }
         .hero-gradient { background: radial-gradient(circle at top, #111 0%, #030303 100%); }
         .gold-text { background: linear-gradient(90deg, #d4af37, #f4e0af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .vertical-card {
+            border: 1px solid #1f1f1f;
+            transition: border-color 0.4s ease, background 0.4s ease;
+        }
+        .vertical-card:hover {
+            border-color: rgba(212, 175, 55, 0.35);
+            background: rgba(212, 175, 55, 0.03);
+        }
+
+        .case-card {
+            border: 1px solid #1a1a1a;
+            transition: border-color 0.4s ease;
+        }
+        .case-card:hover { border-color: rgba(212, 175, 55, 0.3); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gold-line {
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            height: 1px;
+            width: 100%;
+            opacity: 0.3;
+        }
+
+        /* Pulsing live call button */
+        .call-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 12px 20px;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            text-decoration: none;
+        }
+        .call-cta:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            background: rgba(212, 175, 55, 0.04);
+        }
+        .call-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d4af37;
+            animation: pulse 1.8s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- NAV -->
     <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto">
         <div class="text-3xl font-light tracking-[0.2em] uppercase gold-text">JUNO</div>
         <a href="#contact" class="border border-zinc-700 px-6 py-2 rounded-sm text-sm tracking-widest uppercase hover:bg-white hover:text-black transition duration-500">Inquire</a>
     </nav>
 
+    <!-- HERO -->
     <header class="hero-gradient pt-32 pb-20 px-6 text-center">
         <h1 class="text-5xl md:text-8xl font-light mb-8 tracking-tight">Zero Missed Leads. <br><span class="italic font-serif gold-text">Perpetual AI Concierge.</span></h1>
-        
         <p class="text-xl text-zinc-500 max-w-2xl mx-auto mb-12 font-sans tracking-wide">
             Deploy a Bespoke AI Concierge that handles sales, appointments, and FAQs, with the institutional knowledge.
         </p>
-        
         <div class="mb-20">
             <a href="#contact" class="bg-white text-black px-10 py-5 text-sm font-bold uppercase tracking-[0.2em] hover:bg-zinc-200 transition">
                 Apply for Private Access
@@ -31,15 +91,17 @@
         </div>
     </header>
 
+    <!-- VIDEO -->
     <section class="max-w-6xl mx-auto px-6 mb-32">
         <div class="relative rounded-lg border border-zinc-800 p-2 bg-zinc-900 shadow-2xl">
-             <video controls autoplay muted loop class="w-full rounded shadow-inner aspect-video object-cover">
+            <video controls autoplay muted loop class="w-full rounded shadow-inner aspect-video object-cover">
                 <source src="kling-demo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </section>
 
+    <!-- FEATURES -->
     <section class="py-24 bg-zinc-950 border-y border-zinc-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
@@ -62,19 +124,263 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- INDUSTRIES / VERTICALS                          -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="py-32 px-6 max-w-7xl mx-auto fade-in">
+        <div class="text-center mb-20">
+            <p class="text-xs uppercase tracking-[0.4em] gold-text mb-4">Where Juno Works</p>
+            <h2 class="text-4xl md:text-6xl font-light mb-6">Built for every business<br><span class="italic">that runs on photos.</span></h2>
+            <p class="text-zinc-500 font-sans text-sm max-w-xl mx-auto leading-relaxed">Any industry where a customer must describe and show something before a quote or offer can be made — Juno eliminates the back-and-forth entirely.</p>
+        </div>
+
+        <div class="gold-line mb-16"></div>
+
+        <!-- VERTICAL 1: Auto Body -->
+        <div class="vertical-card p-10 md:p-14 mb-4 fade-in">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-xs uppercase tracking-[0.3em] gold-text mb-3">01 &nbsp;—&nbsp; Auto Body & Collision Repair</p>
+                    <h3 class="text-3xl font-light italic mb-4">Stop quoting blind. Start with photos.</h3>
+                    <p class="text-zinc-500 font-sans text-sm leading-relaxed max-w-xl">
+                        Collision shops field 30–50 calls a day from drivers asking "how much to fix my bumper?" — impossible to answer without seeing the damage. Juno answers every call, asks the right questions, and immediately texts a photo request. By the time your estimator picks up the phone, the photos are already there.
+                    </p>
+                </div>
+                <div class="md:w-1/3 grid grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">36k+</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">US Shops</div>
+                    </div>
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">24/7</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">Answering</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERTICAL 2: Estate Sales -->
+        <div class="vertical-card p-10 md:p-14 mb-4 fade-in">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-xs uppercase tracking-[0.3em] gold-text mb-3">02 &nbsp;—&nbsp; Estate Sale & Resale Companies</p>
+                    <h3 class="text-3xl font-light italic mb-4">Every estate call, handled with expertise.</h3>
+                    <p class="text-zinc-500 font-sans text-sm leading-relaxed max-w-xl">
+                        "Will you buy my grandmother's furniture?" can't be answered without seeing it. Juno qualifies each inbound inquiry with trained knowledge of what you buy, then sends a structured photo request on the spot — whether the call comes in at 9am or 11pm.
+                    </p>
+                </div>
+                <div class="md:w-1/3 grid grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">15k+</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">US Companies</div>
+                    </div>
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">0</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">Missed Leads</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERTICAL 3: Jewelry & Pawn -->
+        <div class="vertical-card p-10 md:p-14 mb-4 fade-in">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-xs uppercase tracking-[0.3em] gold-text mb-3">03 &nbsp;—&nbsp; Jewelry Buyers & Pawn Shops</p>
+                    <h3 class="text-3xl font-light italic mb-4">Turn "what's it worth?" into a photo in seconds.</h3>
+                    <p class="text-zinc-500 font-sans text-sm leading-relaxed max-w-xl">
+                        High call volume, thin staff, and customers who want an instant number. Juno handles the inquiry, sets accurate expectations, and gets the photo submitted — so your buyer spends time making offers, not playing phone tag.
+                    </p>
+                </div>
+                <div class="md:w-1/3 grid grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">10k+</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">US Shops</div>
+                    </div>
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">14d</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">To Deploy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERTICAL 4: Home Restoration -->
+        <div class="vertical-card p-10 md:p-14 mb-4 fade-in">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-xs uppercase tracking-[0.3em] gold-text mb-3">04 &nbsp;—&nbsp; Home Restoration & Damage Contractors</p>
+                    <h3 class="text-3xl font-light italic mb-4">The 11pm flood call — answered, triaged, documented.</h3>
+                    <p class="text-zinc-500 font-sans text-sm leading-relaxed max-w-xl">
+                        Water damage, mold, and fire restoration companies live by fast response. When a homeowner's basement floods at night, Juno answers, captures the situation details, and gets photos submitted immediately — giving your team everything they need before the first site visit.
+                    </p>
+                </div>
+                <div class="md:w-1/3 grid grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">$210B</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">Industry Size</div>
+                    </div>
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">24/7</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">Emergency Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERTICAL 5: Furniture & Consignment -->
+        <div class="vertical-card p-10 md:p-14 mb-4 fade-in">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-xs uppercase tracking-[0.3em] gold-text mb-3">05 &nbsp;—&nbsp; Furniture & Consignment Stores</p>
+                    <h3 class="text-3xl font-light italic mb-4">Your phone intake, running itself.</h3>
+                    <p class="text-zinc-500 font-sans text-sm leading-relaxed max-w-xl">
+                        "I have a vintage couch, how much will you give me?" is the whole phone day for resale and consignment shops. Juno handles every inquiry, collects photos of the piece, and organizes submissions — so your team evaluates items, not callers.
+                    </p>
+                </div>
+                <div class="md:w-1/3 grid grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">25k+</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">US Stores</div>
+                    </div>
+                    <div class="bg-zinc-950 p-6 text-center">
+                        <div class="text-3xl font-light gold-text mb-1">∞</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-widest">Concurrent Calls</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-line mt-16"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CASE STUDIES                                    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="py-32 px-6 max-w-7xl mx-auto fade-in">
+        <div class="text-center mb-20">
+            <p class="text-xs uppercase tracking-[0.4em] gold-text mb-4">Proven Results</p>
+            <h2 class="text-4xl md:text-6xl font-light mb-6">Juno, deployed<br><span class="italic">in the field.</span></h2>
+            <p class="text-zinc-500 font-sans text-sm max-w-xl mx-auto leading-relaxed mb-10">Real businesses. Real calls answered. Real leads that no longer fall through the cracks.</p>
+
+            <!-- Live demo CTA -->
+            <p class="text-xs uppercase tracking-[0.35em] text-zinc-600 font-sans mb-5">Try our live integrations — call and hear Juno answer</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:2014500206" class="call-cta">
+                    <span class="call-dot"></span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-zinc-300">NJ Antique Buyers &nbsp;·&nbsp; <span class="gold-text">(201) 450-0206</span></span>
+                </a>
+                <a href="tel:2016404084" class="call-cta">
+                    <span class="call-dot"></span>
+                    <span class="font-sans text-xs uppercase tracking-widest text-zinc-300">Clar Fine Violins &nbsp;·&nbsp; <span class="gold-text">(201) 640-4084</span></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-800">
+
+            <!-- CASE STUDY 1: NJ Antiques -->
+            <div class="case-card bg-zinc-950 p-12 md:p-16 fade-in">
+                <p class="text-xs uppercase tracking-[0.3em] gold-text mb-8">Case Study &nbsp;01</p>
+                <h3 class="text-3xl font-light mb-2">NJ Antique Buyers</h3>
+                <p class="text-zinc-600 font-sans text-xs uppercase tracking-widest mb-8">Maywood, NJ &nbsp;·&nbsp; Estate Buying & Collectibles</p>
+
+                <p class="text-zinc-400 font-sans text-sm leading-relaxed mb-6">
+                    NJ Antique Buyers has operated across the NJ, NY, and CT tri-state area since 2014 — buying jewelry, antiques, and entire estates. Their phone rang constantly with people asking "what will you give me for this?" — impossible to answer without a photo. Staff spent hours gathering submissions manually. Calls after hours went to voicemail and leads disappeared.
+                </p>
+                <p class="text-zinc-400 font-sans text-sm leading-relaxed mb-10">
+                    Juno now answers every call, qualifies the item, and texts a photo request immediately — while the customer is still on the line. Staff arrive each morning to organized, photo-complete submissions ready for evaluation.
+                </p>
+
+                <div class="grid grid-cols-3 border border-zinc-800 mb-10">
+                    <div class="p-6 text-center border-r border-zinc-800">
+                        <div class="text-2xl font-light gold-text mb-1">24/7</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">Always Answering</div>
+                    </div>
+                    <div class="p-6 text-center border-r border-zinc-800">
+                        <div class="text-2xl font-light gold-text mb-1">~0</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">Missed Leads</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="text-2xl font-light gold-text mb-1">14d</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">To Go Live</div>
+                    </div>
+                </div>
+
+                <div class="relative border-l-2 pl-8 py-2 mb-10" style="border-color: #d4af37;">
+                    <p class="text-zinc-300 font-serif italic text-lg leading-relaxed mb-4">"We used to spend half the day on the phone just trying to get photos from people. Now those photos are waiting for us. It changed how we operate."</p>
+                    <p class="text-xs text-zinc-600 uppercase tracking-widest font-sans">NJ Antique Buyers</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 items-start">
+                    <a href="tel:2014500206" class="call-cta">
+                        <span class="call-dot"></span>
+                        <span class="font-sans text-xs uppercase tracking-widest text-zinc-300">(201) 450-0206</span>
+                    </a>
+                    <a href="https://njantiques.com" target="_blank" class="font-sans text-xs uppercase tracking-widest text-zinc-600 hover:text-zinc-300 transition border-b border-zinc-800 pb-1 self-center">
+                        njantiques.com →
+                    </a>
+                </div>
+            </div>
+
+            <!-- CASE STUDY 2: Clar Fine Violins -->
+            <div class="case-card bg-zinc-950 p-12 md:p-16 fade-in">
+                <p class="text-xs uppercase tracking-[0.3em] gold-text mb-8">Case Study &nbsp;02</p>
+                <h3 class="text-3xl font-light mb-2">Clar Fine Violins</h3>
+                <p class="text-zinc-600 font-sans text-xs uppercase tracking-widest mb-8">New Jersey &nbsp;·&nbsp; Fine Stringed Instruments</p>
+
+                <p class="text-zinc-400 font-sans text-sm leading-relaxed mb-6">
+                    Clar Fine Violins is a specialist dealer in violins, violas, cellos, and bows — serving musicians, collectors, and conservatory students across the New York metro area. Consignment inquiries require precision: a violin's maker, varnish, scroll condition, and provenance all determine its value. Gathering that by phone was slow and inconsistent.
+                </p>
+                <p class="text-zinc-400 font-sans text-sm leading-relaxed mb-10">
+                    Juno was trained on the specific vocabulary of fine stringed instruments. It now handles every consignment call — asking about labels, f-hole markings, bow condition — and sends a structured photo request on the spot. Complete submissions, before a single follow-up call.
+                </p>
+
+                <div class="grid grid-cols-3 border border-zinc-800 mb-10">
+                    <div class="p-6 text-center border-r border-zinc-800">
+                        <div class="text-2xl font-light gold-text mb-1">100%</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">Calls Answered</div>
+                    </div>
+                    <div class="p-6 text-center border-r border-zinc-800">
+                        <div class="text-2xl font-light gold-text mb-1">24/7</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">Availability</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="text-2xl font-light gold-text mb-1">14d</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider">To Go Live</div>
+                    </div>
+                </div>
+
+                <div class="relative border-l-2 pl-8 py-2 mb-10" style="border-color: #d4af37;">
+                    <p class="text-zinc-300 font-serif italic text-lg leading-relaxed mb-4">"Our clients expect a certain level of care and attention. Juno delivers that from the very first call — and it means we're always seeing the instrument before we pick up the phone to respond."</p>
+                    <p class="text-xs text-zinc-600 uppercase tracking-widest font-sans">Clar Fine Violins</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 items-start">
+                    <a href="tel:2016404084" class="call-cta">
+                        <span class="call-dot"></span>
+                        <span class="font-sans text-xs uppercase tracking-widest text-zinc-300">(201) 640-4084</span>
+                    </a>
+                    <a href="https://clarviolins.com" target="_blank" class="font-sans text-xs uppercase tracking-widest text-zinc-600 hover:text-zinc-300 transition border-b border-zinc-800 pb-1 self-center">
+                        clarviolins.com →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="py-32 px-6 max-w-2xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-light mb-4">Private Consultation</h2>
             <p class="text-zinc-500 font-sans uppercase tracking-widest text-xs">By Invitation Only</p>
         </div>
-        
         <form action="https://formspree.io/f/xwvnbjvl" method="POST" class="space-y-10">
             <input type="text" name="name" placeholder="Name" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition" required>
             <input type="email" name="_replyto" placeholder="Professional Email" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition" required>
             <textarea name="business_focus" rows="3" placeholder="Tell us about your institution (Auction House, Boutique, etc.)" class="w-full bg-transparent border-b border-zinc-800 py-4 focus:border-gold outline-none transition"></textarea>
-            
             <input type="text" name="_gotcha" style="display:none" />
-
             <button type="submit" class="w-full bg-white text-black py-5 tracking-[0.2em] uppercase text-sm font-bold hover:bg-zinc-200 transition">Submit Request</button>
         </form>
     </section>
@@ -82,7 +388,15 @@
     <footer class="py-16 text-center text-zinc-700 text-xs tracking-[0.4em] uppercase">
         Juno &copy; 2026 | All Rights Reserved.
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(el => {
+                if (el.isIntersecting) el.target.classList.add('visible');
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>
-
-
