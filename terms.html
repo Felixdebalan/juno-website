@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — Perpetual Concierge</title>
+  <link rel="icon" type="image/png" href="public/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue: #3B82F6;
+      --blue-light: #60A5FA;
+      --black: #04111F;
+      --black2: #0A1E35;
+      --gray1: #0D243E;
+      --gray2: #112B4A;
+      --white: #EFF6FF;
+      --muted: #52525b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--black); font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap { border-bottom: 1px solid var(--gray1); }
+    nav {
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .back-link {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--gray2);
+      padding: 8px 18px;
+      transition: all 0.3s;
+    }
+    .back-link:hover { color: var(--white); border-color: rgba(59,130,246,.4); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 40px 48px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .label {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(52px, 8vw, 80px);
+      line-height: 0.95;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .effective {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .gold-line {
+      background: linear-gradient(to right, transparent, var(--blue), transparent);
+      height: 1px;
+      opacity: 0.25;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    /* ── CONTENT ── */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+    .section {
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--gray1);
+    }
+    .section:last-child { border-bottom: none; }
+    h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    p { margin-bottom: 14px; color: #8faabf; font-size: 0.92rem; }
+    ul {
+      margin: 10px 0 14px 0;
+      padding-left: 20px;
+      color: #8faabf;
+      font-size: 0.92rem;
+    }
+    li { margin-bottom: 8px; }
+    a { color: var(--blue-light); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--white); }
+    strong { color: var(--white); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--gray1);
+      padding: 28px 40px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--blue-light); }
+
+    @media (max-width: 600px) {
+      body { overflow-x: hidden; }
+      nav { padding: 16px 20px; }
+      nav img { height: 40px !important; }
+      .back-link { padding: 6px 12px; font-size: 0.65rem; }
+      .hero { padding: 48px 20px 32px; }
+      h1 { font-size: clamp(40px, 12vw, 60px); }
+      .content { padding: 0 20px 64px; }
+      .section { margin-bottom: 36px; padding-bottom: 36px; }
+      h2 { font-size: 22px; }
+      p, ul { font-size: 0.88rem; }
+      footer { padding: 20px 20px; font-size: 0.68rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav>
+    <a href="/"><img src="public/logo-nav.png" alt="Perpetual Concierge" style="height:56px;width:auto;"></a>
+    <a href="/" class="back-link">← Back to site</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="label">Legal</div>
+  <h1>Terms of Service</h1>
+  <p class="effective">Effective Date: April 13, 2026</p>
+</div>
+
+<div class="gold-line"></div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Overview</h2>
+    <p>These Terms of Service ("Terms") govern your use of services provided by Perpetual Concierge ("we," "us," or "our"), including our website at <a href="https://perpetualconcierge.com">perpetualconcierge.com</a> and any AI voice agent systems deployed on our platform.</p>
+    <p>By using our website, interacting with an AI voice agent powered by Perpetual Concierge, or entering into a service agreement with us, you agree to these Terms.</p>
+  </div>
+
+  <div class="section">
+    <h2>Services</h2>
+    <p>Perpetual Concierge provides AI-powered voice agent services to small businesses. These services include inbound call handling, caller qualification, SMS-based photo collection, lead summarization, and call routing. Services are provided to business clients under a separate Service Agreement.</p>
+    <p>If you are a caller interacting with a business that uses our AI agent, these Terms apply to that interaction as well.</p>
+  </div>
+
+  <div class="section">
+    <h2>SMS Messaging</h2>
+    <p>You may receive a text message from a phone number powered by Perpetual Concierge if you have called a business that uses our service and verbally consented to receive an SMS during the call. Messages sent through our platform may include:</p>
+    <ul>
+      <li>Requests for photos of items related to your inquiry</li>
+      <li>Confirmation or follow-up messages from the business</li>
+    </ul>
+    <p>Message and data rates may apply. You may opt out at any time by replying STOP. For help, reply HELP.</p>
+    <p>We do not send unsolicited marketing messages. Your phone number will not be sold or shared with third parties for marketing purposes.</p>
+  </div>
+
+  <div class="section">
+    <h2>Acceptable Use</h2>
+    <p>You agree not to use our services or website to:</p>
+    <ul>
+      <li>Violate any applicable law or regulation</li>
+      <li>Harass, deceive, or harm others</li>
+      <li>Attempt to reverse-engineer, scrape, or otherwise access our systems without authorization</li>
+      <li>Interfere with the operation of our AI agents or infrastructure</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Intellectual Property</h2>
+    <p>All AI workflows, system prompts, automation logic, and platform configurations built by Perpetual Concierge remain the exclusive intellectual property of Perpetual Concierge. Business clients receive a limited, non-exclusive license to use these systems during the term of their Service Agreement. No rights are transferred upon termination.</p>
+    <p>Website content, branding, and materials are owned by Perpetual Concierge and may not be reproduced without written permission.</p>
+  </div>
+
+  <div class="section">
+    <h2>Disclaimer of Warranties</h2>
+    <p>Our services are provided "as is" and "as available" without warranties of any kind, express or implied. We do not guarantee uninterrupted service, error-free operation, or any specific outcome from the use of our AI agents. Service availability depends in part on third-party platforms including Vapi, Twilio, and n8n, whose uptime we do not control.</p>
+  </div>
+
+  <div class="section">
+    <h2>Limitation of Liability</h2>
+    <p>To the fullest extent permitted by law, Perpetual Concierge shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services, including but not limited to lost revenue, missed calls, or business interruption caused by third-party platform outages.</p>
+    <p>Our total liability for any claim arising under these Terms shall not exceed the amount paid by the applicable business client in the 30 days prior to the claim.</p>
+  </div>
+
+  <div class="section">
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by the laws of the State of New York. Any disputes arising under these Terms shall be resolved in the courts of New York County, New York.</p>
+  </div>
+
+  <div class="section">
+    <h2>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The effective date at the top of this page reflects the most recent revision. Continued use of our services after any update constitutes your acceptance of the revised Terms.</p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <p>Questions about these Terms? Reach us at:</p>
+    <p>
+      <a href="mailto:felix@perpetualconcierge.com">felix@perpetualconcierge.com</a><br/>
+      Perpetual Concierge<br/>
+      New York, NY
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Perpetual Concierge &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp;
+  <a href="/privacy-policy.html">Privacy Policy</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Perpetual Concierge</title>
+  <link rel="icon" type="image/png" href="public/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue: #3B82F6;
+      --blue-light: #60A5FA;
+      --black: #04111F;
+      --black2: #0A1E35;
+      --gray1: #0D243E;
+      --gray2: #112B4A;
+      --white: #EFF6FF;
+      --muted: #52525b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--black); font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap { border-bottom: 1px solid var(--gray1); }
+    nav {
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .back-link {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--gray2);
+      padding: 8px 18px;
+      transition: all 0.3s;
+    }
+    .back-link:hover { color: var(--white); border-color: rgba(59,130,246,.4); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 40px 48px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .label {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(52px, 8vw, 80px);
+      line-height: 0.95;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .effective {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .gold-line {
+      background: linear-gradient(to right, transparent, var(--blue), transparent);
+      height: 1px;
+      opacity: 0.25;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    /* ── CONTENT ── */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+    .section {
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--gray1);
+    }
+    .section:last-child { border-bottom: none; }
+    h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    p { margin-bottom: 14px; color: #8faabf; font-size: 0.92rem; }
+    ul {
+      margin: 10px 0 14px 0;
+      padding-left: 20px;
+      color: #8faabf;
+      font-size: 0.92rem;
+    }
+    li { margin-bottom: 8px; }
+    a { color: var(--blue-light); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--white); }
+    strong { color: var(--white); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--gray1);
+      padding: 28px 40px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--blue-light); }
+
+    @media (max-width: 600px) {
+      body { overflow-x: hidden; }
+      nav { padding: 16px 20px; }
+      nav img { height: 40px !important; }
+      .back-link { padding: 6px 12px; font-size: 0.65rem; }
+      .hero { padding: 48px 20px 32px; }
+      h1 { font-size: clamp(40px, 12vw, 60px); }
+      .content { padding: 0 20px 64px; }
+      .section { margin-bottom: 36px; padding-bottom: 36px; }
+      h2 { font-size: 22px; }
+      p, ul { font-size: 0.88rem; }
+      footer { padding: 20px 20px; font-size: 0.68rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav>
+    <a href="/"><img src="public/logo-nav.png" alt="Perpetual Concierge" style="height:56px;width:auto;"></a>
+    <a href="/" class="back-link">← Back to site</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="label">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective Date: April 13, 2026</p>
+</div>
+
+<div class="gold-line"></div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Who We Are</h2>
+    <p>Perpetual Concierge ("we," "us," or "our") provides AI voice agent services to small businesses. Our platform handles inbound phone calls on behalf of our clients, collects caller information, and delivers lead summaries to business owners.</p>
+    <p>This Privacy Policy explains how we collect, use, and protect information when you interact with an AI voice agent powered by Perpetual Concierge, or when you visit <a href="https://perpetualconcierge.com">perpetualconcierge.com</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Information We Collect</h2>
+    <p>When you call a phone number powered by our AI voice agent, we may collect:</p>
+    <ul>
+      <li>Your name and phone number</li>
+      <li>Your geographic location (city or region, as provided by you verbally)</li>
+      <li>A description of items, services, or inquiries you share during the call</li>
+      <li>Photos or images you voluntarily send via SMS in response to a request from the agent</li>
+      <li>Call duration and timestamp</li>
+    </ul>
+    <p>When you visit our website, we may collect standard web analytics data including IP address, browser type, pages visited, and referral source.</p>
+  </div>
+
+  <div class="section">
+    <h2>How We Collect SMS Consent</h2>
+    <p>If you receive a text message from a Perpetual Concierge-powered number, it is because you called the business's phone number and the AI voice agent informed you during the call that a text message would be sent to your number requesting photos of your item. Your continued engagement on the call constitutes verbal consent to receive that message.</p>
+    <p>We do not send unsolicited text messages. We do not send marketing messages to callers. You may reply STOP at any time to opt out of further SMS messages.</p>
+  </div>
+
+  <div class="section">
+    <h2>How We Use Your Information</h2>
+    <p>Information collected during calls is used solely to:</p>
+    <ul>
+      <li>Qualify and summarize your inquiry for the business owner</li>
+      <li>Facilitate follow-up between you and the business you contacted</li>
+      <li>Improve the performance and accuracy of our AI agents</li>
+    </ul>
+    <p>We do not sell your personal information. We do not use your information for advertising purposes.</p>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Services</h2>
+    <p>Our platform relies on the following third-party services to operate:</p>
+    <ul>
+      <li><strong>Vapi</strong> — AI voice infrastructure</li>
+      <li><strong>Twilio</strong> — Phone number provisioning and SMS delivery</li>
+      <li><strong>n8n</strong> — Workflow automation</li>
+    </ul>
+    <p>Each of these providers has its own privacy policy governing their handling of data. We encourage you to review their policies if you have concerns about data processing at the infrastructure level.</p>
+  </div>
+
+  <div class="section">
+    <h2>Data Retention</h2>
+    <p>Call logs and lead summaries are retained for as long as necessary to provide services to the business you contacted. If you would like your information removed, you may contact us at <a href="mailto:felix@perpetualconcierge.com">felix@perpetualconcierge.com</a> and we will process your request within 30 days.</p>
+  </div>
+
+  <div class="section">
+    <h2>Your Rights</h2>
+    <p>Depending on your location, you may have the right to access, correct, or delete personal information we hold about you. To exercise any of these rights, contact us at <a href="mailto:felix@perpetualconcierge.com">felix@perpetualconcierge.com</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect the most recent revision. Continued use of services powered by Perpetual Concierge after any update constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy, reach us at:</p>
+    <p>
+      <a href="mailto:felix@perpetualconcierge.com">felix@perpetualconcierge.com</a><br/>
+      Perpetual Concierge<br/>
+      New York, NY
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Perpetual Concierge &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp;
+  <a href="/terms.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>

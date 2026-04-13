@@ -120,7 +120,7 @@
               "name": "Will my customers know they're talking to an AI?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most callers never know. The agent speaks naturally, asks normal questions, and moves the conversation forward the same way a good receptionist would. We have 85 consecutive calls handled for a live client with zero complaints. The agent can be configured to acknowledge it's an AI if directly asked — that setting is up to you."
+                "text": "Most callers never know. The agent speaks naturally, asks normal questions, and moves the conversation forward the same way a real person would. We have 85 consecutive calls handled for a live client with zero complaints. The agent can be configured to acknowledge it's an AI if directly asked — that setting is up to you."
               }
             },
             {
@@ -160,7 +160,7 @@
               "name": "Does it replace my staff?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. Perpetual Concierge handles repetitive intake calls so your team focuses on high-value work: evaluating submissions, making offers, and closing deals. A full-time human receptionist costs $3,118/month for 40 hours/week. 24/7 human coverage would cost over $13,000/month. The agent delivers the same coverage for under $350/month."
+                "text": "No. Juno handles the phone so you stay focused on the job in front of you. Every lead is qualified and summarized before you call back — no more stopping work to take notes, no more callbacks with zero context."
               }
             }
           ]
@@ -238,12 +238,13 @@
             position: fixed;
             top: 0;
             left: 0;
-            height: 2px;
+            height: 3px;
             width: 0%;
-            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
-            z-index: 9999;
-            box-shadow: 0 0 10px rgba(59, 130, 246, .5);
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+            z-index: 10000;
+            box-shadow: 0 0 14px rgba(59,130,246,.8), 0 0 4px rgba(59,130,246,1);
             transition: width .05s linear;
+            border-radius: 0 2px 2px 0;
         }
 
         /* ── FAQ ACCORDION ── */
@@ -260,7 +261,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 22px 0;
+            padding: 24px 0;
             font-size: 1.1rem;
             font-weight: 300;
             font-family: 'Inter', sans-serif;
@@ -269,25 +270,31 @@
             color: var(--white);
             transition: color .3s;
             gap: 20px;
+            user-select: none;
         }
 
-        .faq-q::-webkit-details-marker {
-            display: none;
-        }
+        .faq-q::-webkit-details-marker { display: none; }
 
-        .faq-q::after {
-            content: '+';
-            color: var(--gold);
-            font-size: 1.5rem;
-            font-family: sans-serif;
-            font-weight: 200;
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            border: 1px solid rgba(59,130,246,.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            transition: transform .35s;
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 200;
+            transition: transform .4s cubic-bezier(.4,0,.2,1), background .3s, border-color .3s;
             line-height: 1;
         }
 
-        .faq-item[open] .faq-q::after {
+        .faq-item[open] .faq-icon {
             transform: rotate(45deg);
+            background: rgba(59,130,246,.08);
+            border-color: rgba(59,130,246,.4);
         }
 
         .faq-item[open] .faq-q {
@@ -295,13 +302,19 @@
         }
 
         .faq-a {
-            padding: 0 32px 24px 0;
+            padding: 0 40px 24px 0;
+            animation: faqOpen .3s ease;
+        }
+
+        @keyframes faqOpen {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .faq-a p {
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            color: #888;
+            color: #94a3b8;
             line-height: 1.85;
             max-width: 680px;
         }
@@ -575,34 +588,37 @@
         /* ── NAV (fixed) ── */
         #main-nav {
             position: fixed;
-            top: 2px;
-            left: 0;
-            right: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1020px;
             z-index: 9900;
-            padding: 20px 48px;
+            padding: 8px 16px 8px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 24px;
-            transition: background .45s, padding .4s, border-color .4s;
-            border-bottom: 1px solid transparent;
+            border-radius: 14px;
+            border: 1px solid rgba(59, 130, 246, .13);
+            background: rgba(4, 17, 31, .75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255,255,255,.03);
+            transition: border-color .4s, box-shadow .4s, background .4s;
         }
 
         #main-nav.scrolled {
-            background: rgba(4, 17, 31, .95);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            padding: 12px 48px;
-            border-bottom-color: rgba(59, 130, 246, .12);
+            background: rgba(4, 17, 31, .92);
+            border-color: rgba(59, 130, 246, .22);
+            box-shadow: 0 8px 48px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255,255,255,.04);
         }
 
         @media (max-width: 860px) {
             #main-nav {
-                padding: 18px 24px;
-            }
-
-            #main-nav.scrolled {
-                padding: 11px 24px;
+                top: 14px;
+                width: calc(100% - 32px);
+                padding: 8px 14px;
             }
         }
 
@@ -616,7 +632,7 @@
 
         .nav-link {
             font-family: 'Inter', sans-serif;
-            font-size: 12px;
+            font-size: 0.65rem;
             font-weight: 500;
             letter-spacing: .18em;
             text-transform: uppercase;
@@ -720,9 +736,10 @@
         .mobile-menu-cta {
             margin-top: 16px;
             border: 1px solid var(--gold);
+            border-radius: 14px;
             color: var(--gold);
             font-family: 'Inter', sans-serif;
-            font-size: 11px;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: .2em;
             text-transform: uppercase;
@@ -788,7 +805,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center top;
-            filter: grayscale(15%);
+            filter: grayscale(0%);
             transition: filter .6s, transform .6s;
             display: block;
             border-radius: 50%;
@@ -808,7 +825,7 @@
 
         .about-role {
             font-family: 'Inter', sans-serif;
-            font-size: .8rem;
+            font-size: 0.85rem;
             color: var(--gold);
             letter-spacing: .2em;
             text-transform: uppercase;
@@ -854,7 +871,7 @@
 
         .credential-label {
             font-family: 'Inter', sans-serif;
-            font-size: .72rem;
+            font-size: 0.78rem;
             color: var(--gold);
             font-weight: 600;
             letter-spacing: .18em;
@@ -878,6 +895,7 @@
             letter-spacing: .08em;
             color: var(--black);
             background: var(--gold);
+            border-radius: 14px;
             text-decoration: none;
             padding: 14px 28px;
             transition: background .3s, color .3s, box-shadow .3s;
@@ -899,6 +917,8 @@
             padding: 52px;
             background: rgba(59, 130, 246, .015);
             position: relative;
+            border-radius: 14px;
+            overflow: hidden;
         }
 
         .contact-wrap::before {
@@ -936,17 +956,19 @@
         }
 
         .form-label {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 11px;
-            letter-spacing: .32em;
-            color: #484848;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: .28em;
+            color: #60A5FA;
             text-transform: uppercase;
         }
 
         .form-input,
         .form-textarea {
-            background: transparent;
-            border: 1px solid #112B4A;
+            background: rgba(13, 36, 62, 0.6);
+            border: 1px solid #1E3A5F;
+            border-radius: 14px;
             padding: 14px 18px;
             color: var(--white);
             font-family: 'Inter', sans-serif;
@@ -959,13 +981,13 @@
 
         .form-input::placeholder,
         .form-textarea::placeholder {
-            color: rgba(59, 130, 246, 0.3);
+            color: #3a5a7a;
         }
 
         .form-input:focus,
         .form-textarea:focus {
-            border-color: rgba(59, 130, 246, .4);
-            background: rgba(59, 130, 246, .02);
+            border-color: rgba(59, 130, 246, .55);
+            background: rgba(59, 130, 246, .04);
         }
 
         .form-textarea {
@@ -983,10 +1005,11 @@
             width: 100%;
             background: transparent;
             border: 1px solid var(--gold);
+            border-radius: 14px;
             color: var(--gold);
             padding: 18px 24px;
             font-family: 'Inter', sans-serif;
-            font-size: .82rem;
+            font-size: 0.88rem;
             font-weight: 600;
             letter-spacing: .28em;
             text-transform: uppercase;
@@ -1024,7 +1047,16 @@
             .footer-top {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                padding: 52px 0 40px;
+                padding: 48px 0 36px;
+            }
+            .footer-nav-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+            .footer-inner { padding: 0 20px; }
+            .footer-bottom {
+                padding: 16px 0;
+                font-size: 0.7rem;
             }
         }
 
@@ -1052,7 +1084,7 @@
 
         .footer-demo-label {
             font-family: 'Inter', sans-serif;
-            font-size: 8.5px;
+            font-size: 0.62rem;
             font-weight: 600;
             letter-spacing: .3em;
             text-transform: uppercase;
@@ -1065,16 +1097,14 @@
             align-items: center;
             gap: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: .78rem;
+            font-size: 0.82rem;
             color: #52525b;
             text-decoration: none;
             transition: color .3s;
             margin-bottom: 8px;
         }
 
-        .footer-call:hover {
-            color: var(--gold);
-        }
+        .footer-call:hover { color: var(--gold); }
 
         .footer-call-dot {
             width: 5px;
@@ -1087,13 +1117,13 @@
 
         .footer-nav-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
         }
 
         .footer-col-title {
             font-family: 'Inter', sans-serif;
-            font-size: 11px;
+            font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: .32em;
             text-transform: uppercase;
@@ -1115,9 +1145,7 @@
             transition: color .3s;
         }
 
-        .footer-col a:hover {
-            color: var(--white);
-        }
+        .footer-col a:hover { color: var(--white); }
 
         .footer-bottom {
             display: flex;
@@ -1125,7 +1153,7 @@
             align-items: center;
             padding: 20px 0;
             font-family: 'Inter', sans-serif;
-            font-size: .75rem;
+            font-size: 0.78rem;
             color: #27272a;
             letter-spacing: .1em;
             text-transform: uppercase;
@@ -1133,11 +1161,7 @@
         }
 
         @media (max-width: 480px) {
-            .footer-bottom {
-                flex-direction: column;
-                gap: 6px;
-                text-align: center;
-            }
+            .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
         }
 
         /* ── STAT NUMBERS (vertical cards + case studies) ── */
@@ -1257,7 +1281,7 @@
 
         .marquee-item {
             font-family: 'Bebas Neue', cursive;
-            font-size: 12px;
+            font-size: 0.7rem;
             letter-spacing: .35em;
             color: rgba(59, 130, 246, .3);
             text-transform: uppercase;
@@ -1266,7 +1290,7 @@
 
         .marquee-dot {
             color: var(--gold);
-            font-size: 10px;
+            font-size: 0.6rem;
             opacity: .5;
         }
 
@@ -1283,7 +1307,7 @@
         /* ── SECTION LABEL ── */
         .slabel {
             font-family: 'Bebas Neue', cursive;
-            font-size: 13px;
+            font-size: 0.72rem;
             letter-spacing: .38em;
             text-transform: uppercase;
             color: var(--gold);
@@ -1305,13 +1329,28 @@
         .vertical-card {
             border: 1px solid #112B4A;
             transition: border-color .4s, background .4s, box-shadow .45s;
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .vertical-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(59,130,246,.4), transparent);
+            transform: scaleX(0);
+            transition: transform .5s ease;
         }
 
         .vertical-card:hover {
-            border-color: rgba(59, 130, 246, .3);
-            background: rgba(59, 130, 246, .022);
-            box-shadow: 0 0 50px rgba(59, 130, 246, .04), inset 0 0 50px rgba(59, 130, 246, .012);
+            border-color: rgba(59, 130, 246, .35);
+            background: rgba(59, 130, 246, .03);
+            box-shadow: 0 8px 60px rgba(59, 130, 246, .07), inset 0 0 60px rgba(59, 130, 246, .015);
         }
+
+        .vertical-card:hover::after { transform: scaleX(1); }
 
         /* ── CASE CARDS ── */
         .case-card {
@@ -1508,13 +1547,15 @@
         /* ── MOBILE ── */
         @media (max-width: 640px) {
             html { font-size: 16px; }
+            body { overflow-x: hidden; }
 
             /* ─ Global section rhythm ─ */
             .py-32 { padding-top: 56px !important; padding-bottom: 56px !important; }
+            .py-24 { padding-top: 48px !important; padding-bottom: 48px !important; }
             section h2 { font-size: 1.85rem !important; line-height: 1.2; }
 
             /* ─ Hero ─ */
-            #hero { padding: 100px 20px 52px; }
+            #hero { padding: 120px 20px 60px; }
             #hero h1 { font-size: 2.1rem; line-height: 1.13; }
             #hero p { font-size: 0.95rem; }
             .phone-orbit { width: 78px; height: 78px; margin-bottom: 24px; }
@@ -1526,12 +1567,10 @@
             .wave-bar { width: 2px; }
 
             /* ─ Nav ─ */
-            #main-nav { padding: 12px 18px; }
-            #main-nav.scrolled { padding: 9px 18px; }
-            #main-nav img { height: 50px !important; }
+            #main-nav img { height: 44px !important; }
 
             /* ─ Marquee ─ */
-            .marquee-item { font-size: 9.5px; }
+            .marquee-item { font-size: 0.68rem; }
 
             /* ─ Demo section ─ */
             .demo-wrap { padding: 52px 20px; }
@@ -1571,7 +1610,7 @@
             /* 3-stat grid inside case cards */
             .case-card .grid.grid-cols-3 > div { padding: 12px 6px !important; }
             .case-card .grid.grid-cols-3 .text-2xl { font-size: 1.1rem; }
-            .case-card .grid.grid-cols-3 .text-xs { font-size: 0.58rem; letter-spacing: 0.04em; }
+            .case-card .grid.grid-cols-3 .text-xs { font-size: 0.72rem; letter-spacing: 0.04em; }
             .case-card .mb-10 { margin-bottom: 28px !important; }
 
             /* ─ About ─ */
@@ -1596,20 +1635,333 @@
 
             /* ─ CTA buttons ─ */
             a.bg-white, a[class*="px-10"] {
-                padding: 14px 22px !important;
-                font-size: 0.7rem !important;
+                display: block !important;
+                width: 100%;
+                text-align: center;
+                padding: 16px 20px !important;
+                font-size: 0.8rem !important;
+                box-sizing: border-box;
             }
 
+            /* ─ Comparison ─ */
+            .comparison-col { padding: 24px 20px; }
+            .comparison-head { font-size: 0.7rem; padding: 10px 16px; }
+            .comparison-row { gap: 10px; padding: 8px 0; }
+            .comparison-text-bad, .comparison-text-good { font-size: 0.85rem; }
+            .comparison-icon { font-size: 0.75rem; flex-shrink: 0; }
+
+            /* ─ Feature cards ─ */
+            #features { padding: 44px 16px; }
+            #features .grid { gap: 12px !important; background: transparent !important; }
+            .feature-card { padding: 28px 24px; border: 1px solid rgba(59,130,246,.1) !important; }
+
+            /* ─ About LinkedIn buttons ─ */
+            .about-linkedin { width: 100%; justify-content: center; }
+
             /* ─ Footer ─ */
-            .footer-top { grid-template-columns: 1fr !important; gap: 32px; padding: 40px 0 24px; }
-            .footer-nav-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
-            .footer-logo-text { font-size: 1.15rem; }
-            .footer-bottom { flex-direction: column; gap: 6px; text-align: center; font-size: 0.6rem; }
+            .footer-top { padding: 40px 0 32px !important; }
+            .footer-nav-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+            .footer-bottom { flex-direction: column; gap: 6px; text-align: center; font-size: 0.7rem; }
 
             /* ─ Live call CTAs — clip sonar rings to prevent horizontal overflow ─ */
             .call-cta { padding: 10px 12px; overflow: hidden; }
             .call-cta::before, .call-cta::after { display: none; }
         }
+
+        /* ── HERO AURORA ── */
+        @keyframes aurora-shift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%       { transform: translate(40px, -30px) scale(1.08); }
+            66%       { transform: translate(-30px, 20px) scale(.93); }
+        }
+        .hero-aurora {
+            position: absolute;
+            inset: -30%;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 55% 45% at 25% 65%, rgba(59,130,246,.18) 0%, transparent 60%),
+                radial-gradient(ellipse 45% 55% at 75% 35%, rgba(96,165,250,.12) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 35% at 55% 85%, rgba(37,99,235,.13) 0%, transparent 50%);
+            filter: blur(48px);
+            animation: aurora-shift 14s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* ── LOGO STRIP ── */
+        .logo-strip {
+            border-top: 1px solid #091D35;
+            border-bottom: 1px solid #091D35;
+            padding: 28px 24px;
+        }
+        .logo-strip-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+        .logo-strip-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: #27272a;
+            white-space: nowrap;
+            padding-right: 32px;
+            border-right: 1px solid #112B4A;
+            margin-right: 32px;
+        }
+        .logo-strip-clients {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .logo-strip-client {
+            font-family: 'Inter', sans-serif;
+            font-size: .8rem;
+            font-weight: 500;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #3f3f46;
+            transition: color .3s;
+            white-space: nowrap;
+        }
+        .logo-strip-client:hover { color: #71717a; }
+        .logo-strip-logo {
+            height: 28px;
+            width: auto;
+            filter: brightness(0) invert(1) opacity(0.28);
+            transition: filter .3s;
+            flex-shrink: 0;
+        }
+        .logo-strip-logo:hover { filter: brightness(0) invert(1) opacity(0.55); }
+
+        /* ── FEATURE CARDS ── */
+        .feature-card {
+            padding: 40px 36px;
+            border: 1px solid transparent;
+            background: var(--black);
+            transition: border-color .4s, background .4s;
+            position: relative;
+            border-radius: 14px;
+        }
+        .feature-card:hover {
+            border-color: rgba(59,130,246,.2);
+            background: rgba(59,130,246,.02);
+        }
+        .feature-icon {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* ── BENTO GRID ── */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 10px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-main { grid-column: span 1 !important; }
+            .bento-wide { grid-column: span 1 !important; }
+        }
+        .bento-card {
+            border: 1px solid #112B4A;
+            background: rgba(59,130,246,.02);
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .4s, box-shadow .4s, background .4s;
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,.06) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity .4s;
+        }
+        .bento-card:hover { border-color: rgba(59,130,246,.28); background: rgba(10,30,53,.6); }
+        .bento-card:hover::before { opacity: 1; }
+        .bento-card:hover .bento-arrow { opacity: 1; transform: translate(0,0); }
+        .bento-main { grid-column: span 2; }
+        .bento-wide { grid-column: span 3; }
+        .bento-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(59,130,246,.2);
+            background: rgba(59,130,246,.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+        .bento-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .bento-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        .bento-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: .85rem;
+            color: #52525b;
+            line-height: 1.75;
+        }
+        .bento-stat {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 200;
+            letter-spacing: -.03em;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .bento-arrow {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            font-size: 1.2rem;
+            color: rgba(59,130,246,.5);
+            opacity: 0;
+            transform: translate(-4px, 4px);
+            transition: opacity .3s, transform .3s;
+        }
+        .bento-wide-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .bento-wide-inner { grid-template-columns: 1fr; gap: 20px; }
+        }
+        .bento-wide-stat {
+            text-align: center;
+            padding: 12px 0;
+            border-right: 1px solid #112B4A;
+        }
+        .bento-wide-stat:last-child { border-right: none; }
+
+        /* ── COMPARISON ── */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid #112B4A;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        @media (max-width: 640px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+            .comparison-col-b { border-left: none !important; border-top: 1px solid #112B4A; }
+        }
+        .comparison-col {
+            padding: 36px;
+        }
+        .comparison-col-b {
+            border-left: 1px solid #112B4A;
+            background: rgba(59,130,246,.025);
+        }
+        .comparison-head {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #112B4A;
+        }
+        .comparison-head-bad { color: #3f3f46; }
+        .comparison-head-good { color: var(--gold); }
+        .comparison-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #091D35;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .comparison-row:last-child { border-bottom: none; }
+        .comparison-icon { flex-shrink: 0; margin-top: 2px; font-size: .9rem; }
+        .comparison-text-bad { color: #3f3f46; }
+        .comparison-text-good { color: #94a3b8; }
+
+        /* ── CTA BANNER ── */
+        .cta-banner {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(59,130,246,.15);
+            border-bottom: 1px solid rgba(59,130,246,.15);
+            padding: 96px 24px;
+            text-align: center;
+            background: var(--black2);
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(59,130,246,.1) 0%, transparent 65%);
+            animation: aurora-shift 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .cta-banner-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+        .cta-banner h2 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 300;
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+        .cta-banner p {
+            font-family: 'Inter', sans-serif;
+            font-size: .95rem;
+            color: #52525b;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .cta-banner-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 14px;
+            padding: 16px 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .3s, box-shadow .3s;
+        }
+        .cta-banner-btn:hover {
+            background: var(--gold-light);
+            box-shadow: 0 0 40px rgba(59,130,246,.3);
+        }
+
+        /* ── ANIMATED COUNTERS ── */
+        .stat-num { display: inline-block; }
+
     </style>
 </head>
 
@@ -1631,7 +1983,7 @@
     <!-- ══ NAV ══ -->
     <nav id="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#hero" style="text-decoration:none;display:inline-flex;align-items:center;">
-            <img src="public/logo-nav.png" alt="Perpetual Concierge" style="height:68px;width:auto;">
+            <img src="public/logo-nav.png" alt="Perpetual Concierge" style="height:52px;width:auto;display:block;">
         </a>
 
         <ul class="nav-links" role="list">
@@ -1645,7 +1997,7 @@
         <div style="display:flex;align-items:center;gap:16px;">
             <a href="#contact"
                 class="border border-zinc-700 px-5 py-2 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition duration-300 font-sans"
-                style="white-space:nowrap;">Inquire</a>
+                style="white-space:nowrap;border-radius:14px;">Inquire</a>
             <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -1654,6 +2006,7 @@
 
     <!-- ══ HERO ══ -->
     <header id="hero">
+        <div class="hero-aurora"></div>
         <div class="hero-grid"></div>
         <div class="hero-glow"></div>
 
@@ -1667,9 +2020,9 @@
                 <div class="phone-icon">📞</div>
             </div>
 
-            <h1 class="text-5xl md:text-8xl font-light mb-8 tracking-tight">Zero Missed Leads. <br><span
+            <h1 class="text-4xl md:text-6xl font-light mb-8 tracking-tight">Zero Missed Leads. <br><span
                     class="italic font-serif gold-text">Perpetual AI Concierge.</span></h1>
-            <p class="text-xl text-zinc-500 max-w-2xl mx-auto font-sans tracking-wide">
+            <p class="text-xl max-w-2xl mx-auto font-sans tracking-wide" style="color:#94a3b8;">
                 Deploy a Bespoke AI Concierge that handles sales, appointments, and FAQs, with the institutional
                 knowledge.
             </p>
@@ -1712,12 +2065,29 @@
 
             <div>
                 <a href="#contact"
-                    class="bg-white text-black px-10 py-5 text-sm font-bold uppercase tracking-[0.2em] hover:bg-zinc-200 transition inline-block">
-                    Apply for Private Access
+                    class="bg-white text-black px-10 py-5 text-sm font-bold uppercase tracking-[0.2em] hover:bg-zinc-200 transition inline-block"
+                    style="box-shadow: 0 0 40px rgba(59,130,246,.25), 0 0 80px rgba(59,130,246,.1);border-radius:14px;">
+                    Get Your AI Concierge →
                 </a>
             </div>
         </div>
     </header>
+
+    <!-- ══ LOGO STRIP ══ -->
+    <div class="logo-strip">
+        <div class="logo-strip-inner">
+            <span class="logo-strip-label">Trusted by</span>
+            <div class="logo-strip-clients">
+                <a href="https://njantiques.com/" target="_blank" rel="noopener">
+                    <img class="logo-strip-logo" src="https://njantiques.com/wp-content/uploads/2023/03/nj-antique-buyers_sq_KO_green.png" alt="NJ Antique Buyers">
+                </a>
+                <span class="logo-strip-client" style="color:#1e1e22;">·</span>
+                <a href="https://clarviolins.com/" target="_blank" rel="noopener">
+                    <img class="logo-strip-logo" src="https://clarviolins.com/wp-content/uploads/2025/10/black_logo-transparent_bg.png" alt="Clar Fine Violins" style="height:22px;">
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- ══ MARQUEE ══ -->
     <div class="marquee-strip">
@@ -1844,27 +2214,98 @@
     </section>
 
     <!-- ══ FEATURES ══ -->
-    <section id="features" class="py-24 border-y border-zinc-900" style="background: var(--black2);">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center fade-in">
-                <div>
-                    <div class="slabel justify-center mb-4">High Likelihood</div>
-                    <p class="text-xl font-light italic mb-3">Institutional Fluency</p>
-                    <p class="text-sm text-zinc-500 font-sans leading-relaxed">Trained on your archives and catalogs. It
-                        doesn't just talk; it intimately knows your inventory and provenance.</p>
+    <section id="features" class="py-24 px-6" style="border-top:1px solid #091D35; border-bottom:1px solid #091D35;">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <div class="slabel justify-center mb-4">What makes it different</div>
+                <h2 class="text-3xl md:text-4xl font-light">Three things that can't happen<br><span class="italic gold-text">when you're on the job.</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-900 fade-in">
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <div class="slabel mb-3">High Likelihood</div>
+                    <p class="text-xl font-light italic mb-4" style="color:var(--white);">Institutional Fluency</p>
+                    <p class="font-sans leading-relaxed" style="color:#94a3b8;font-size:1.05rem;">Trained on your archives and catalogs. It doesn't just talk — it intimately knows your inventory, what you buy, and how to qualify each caller the way you would.</p>
                 </div>
-                <div>
-                    <div class="slabel justify-center mb-4">Zero Effort</div>
-                    <p class="text-xl font-light italic mb-3">Turnkey Integration</p>
-                    <p class="text-sm text-zinc-500 font-sans leading-relaxed">We build the logic and the voice. You
-                        simply provide the documentation. Live and deployed in 14 days.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="slabel mb-3">Zero Effort</div>
+                    <p class="text-xl font-light italic mb-4" style="color:var(--white);">Turnkey Integration</p>
+                    <p class="font-sans leading-relaxed" style="color:#94a3b8;font-size:1.05rem;">We build the logic and the voice. You provide the documentation. Your existing number forwards to the agent — no hardware, no apps, live in 14 days.</p>
                 </div>
-                <div>
-                    <div class="slabel justify-center mb-4">Multimodal Service</div>
-                    <p class="text-xl font-light italic mb-3">Beyond the Call</p>
-                    <p class="text-sm text-zinc-500 font-sans leading-relaxed">While conversing, the concierge instantly
-                        texts high-resolution images, video condition reports, and private registration links directly
-                        to the client's device.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📲</div>
+                    <div class="slabel mb-3">Multimodal Service</div>
+                    <p class="text-xl font-light italic mb-4" style="color:var(--white);">Beyond the Call</p>
+                    <p class="font-sans leading-relaxed" style="color:#94a3b8;font-size:1.05rem;">While conversing, the concierge texts photo requests and condition report links directly to the caller's device — before you ever pick up the phone.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ COMPARISON ══ -->
+    <section class="py-24 px-6 max-w-4xl mx-auto fade-in">
+        <div class="text-center mb-14">
+            <div class="slabel justify-center mb-5">The case for switching</div>
+            <h2 class="text-3xl md:text-5xl font-light">Doing it yourself vs<br><span class="italic gold-text">Juno AI Concierge</span></h2>
+        </div>
+        <div class="comparison-grid">
+            <div class="comparison-col">
+                <div class="comparison-head comparison-head-bad">Without Juno</div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">Phone rings while you're on the job — call goes to voicemail</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">You stop work to answer — lose focus, lose time</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">Two calls at once — one lead always slips through</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">Callback starts cold — you don't know what they need or where they are</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">No photos until you drive out — wasting time on bad jobs</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon">✕</span>
+                    <span class="comparison-text-bad">After-hours calls go unanswered — competitor picks them up</span>
+                </div>
+            </div>
+            <div class="comparison-col comparison-col-b">
+                <div class="comparison-head comparison-head-good">Juno AI Concierge</div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Answers every call 24/7 — including nights and weekends</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Photos arrive before you call back, mid-conversation</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Unlimited concurrent calls — never a busy signal</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Fixed monthly retainer, no benefits or overhead</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Live in 14 days, trained on your specific business</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-icon" style="color:#3B82F6;">✓</span>
+                    <span class="comparison-text-good">Complete lead summary with photos delivered to you</span>
                 </div>
             </div>
         </div>
@@ -2159,11 +2600,11 @@
                         <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">Always Answering</div>
                     </div>
                     <div class="p-6 text-center border-r border-zinc-800">
-                        <div class="text-2xl font-light gold-text mb-1">~0</div>
-                        <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">Missed Leads</div>
+                        <div class="text-2xl font-light gold-text mb-1" data-target="85">0</div>
+                        <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">Calls, Zero Missed</div>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="text-2xl font-light gold-text mb-1">14d</div>
+                        <div class="text-2xl font-light gold-text mb-1" data-target="14d">0d</div>
                         <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">To Go Live</div>
                     </div>
                 </div>
@@ -2208,7 +2649,7 @@
 
                 <div class="grid grid-cols-3 border border-zinc-800 mb-10">
                     <div class="p-6 text-center border-r border-zinc-800">
-                        <div class="text-2xl font-light gold-text mb-1">100%</div>
+                        <div class="text-2xl font-light gold-text mb-1" data-target="100%">0%</div>
                         <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">Calls Answered</div>
                     </div>
                     <div class="p-6 text-center border-r border-zinc-800">
@@ -2216,7 +2657,7 @@
                         <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">Availability</div>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="text-2xl font-light gold-text mb-1">14d</div>
+                        <div class="text-2xl font-light gold-text mb-1" data-target="14d">0d</div>
                         <div class="text-xs text-zinc-600 uppercase tracking-wider font-sans">To Go Live</div>
                     </div>
                 </div>
@@ -2299,18 +2740,11 @@
                 </a>
 
                 <!-- Built by -->
-                <div
-                    style="margin-top:20px;padding-top:20px;border-top:1px solid #112B4A;display:flex;align-items:center;gap:10px;">
-                    <span
-                        style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:#3a3a3a;letter-spacing:.12em;text-transform:uppercase;">Built
-                        by</span>
+                <div style="margin-top:20px;padding-top:20px;border-top:1px solid #112B4A;display:flex;align-items:center;gap:8px;">
+                    <span style="font-family:'Inter',sans-serif;font-size:.72rem;color:#27272a;letter-spacing:.12em;text-transform:uppercase;">Built by</span>
                     <a href="https://www.linkedin.com/in/mario-almandoz-423643236/" target="_blank" rel="noopener"
-                        style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.78rem;color:#555;transition:color .3s;"
-                        onmouseover="this.style.color='#EFF6FF'" onmouseout="this.style.color='#555'">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="opacity:.55;">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
+                        style="font-family:'Inter',sans-serif;font-size:.78rem;color:#3f3f46;text-decoration:none;transition:color .3s;letter-spacing:.05em;"
+                        onmouseover="this.style.color='#60A5FA'" onmouseout="this.style.color='#3f3f46'">
                         Mario Almandoz
                     </a>
                 </div>
@@ -2328,51 +2762,51 @@
         </div>
         <div>
             <details class="faq-item" open>
-                <summary class="faq-q">What exactly does Perpetual Concierge do?</summary>
+                <summary class="faq-q"><span>What exactly does Perpetual Concierge do?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>It deploys a custom AI voice agent that handles every inbound call 24/7 — with zero human involvement in the qualification loop. Every call goes through triple qualification: <strong>voice intake</strong> (what they have, contact info, intent), <strong>mid-call SMS photo collection</strong> (photos arrive before you call back), and <strong>location confirmation</strong> (verifies proximity before any commitment). You receive a complete lead summary with photos before you ever pick up the phone.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">How much does it cost?</summary>
+                <summary class="faq-q"><span>How much does it cost?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>Pricing is customized based on your business size and call volume. There's a one-time setup fee and a monthly retainer — both discussed during your private consultation. The setup fee is deferred until the agent is live and you've confirmed it works. You don't pay for something that isn't running.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">Will my customers know they're talking to an AI?</summary>
+                <summary class="faq-q"><span>Will my customers know they're talking to an AI?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
-                    <p>Most callers never know. The agent speaks naturally, asks normal questions, and moves the conversation forward the same way a good receptionist would. We have 85 consecutive calls handled for a live client with zero complaints. If a caller directly asks, the agent can be configured to acknowledge it — that's your call.</p>
+                    <p>Most callers never know. The agent speaks naturally, asks normal questions, and moves the conversation forward the same way a real person would. We have 85 consecutive calls handled for a live client with zero complaints. If a caller directly asks, the agent can be configured to acknowledge it — that's your call.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">My calls are too complex for AI.</summary>
+                <summary class="faq-q"><span>My calls are too complex for AI.</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>The agent doesn't replace your judgment — it replaces the intake step. It captures, qualifies, and requests photos so that when you do get involved, you already have what you need to decide. You handle the complexity. The agent handles the phone. It also supports live transfers to you during business hours for callers who need a human.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">What if the AI makes a mistake?</summary>
+                <summary class="faq-q"><span>What if the AI makes a mistake?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>The agent's job is to capture and qualify — never to quote, commit, or promise anything on your behalf. If it misunderstands something, the lead still gets captured and you still get the callback. The floor is a voicemail with a photo. The ceiling is a fully pre-qualified appointment.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">I already have voicemail. Why do I need this?</summary>
+                <summary class="faq-q"><span>I already have voicemail. Why do I need this?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>Voicemail captures a message. It doesn't qualify the lead, ask for photos, or confirm location. 78% of customers buy from whoever responds first — if they hit voicemail, they're already calling your competitor. The agent answers on the first ring, every time. NJ Antiques handled 85 calls in 8 days: zero missed, 74 selling leads.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">How long does setup take?</summary>
+                <summary class="faq-q"><span>How long does setup take?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
                     <p>Most clients go live within 14 days. We start with an onboarding form to capture your business details, then build and test the agent before handoff. No new hardware, apps, or technical knowledge required. Your existing business number forwards to the agent — that's it.</p>
                 </div>
             </details>
             <details class="faq-item">
-                <summary class="faq-q">Does it replace my staff?</summary>
+                <summary class="faq-q"><span>Do I still need to answer calls?</span><span class="faq-icon">+</span></summary>
                 <div class="faq-a">
-                    <p>No. It handles repetitive intake calls so your team focuses on high-value work: evaluating submissions, making offers, closing deals. Think of it as 24/7 coverage at a fraction of the cost of a human receptionist — without sick days, missed calls, or off-hours gaps.</p>
+                    <p>No. Juno handles the phone so you stay focused on the job in front of you. Every lead is qualified and summarized before you call back — no more stopping work to take notes, no more callbacks with zero context.</p>
                 </div>
             </details>
         </div>
@@ -2382,8 +2816,8 @@
     <section id="contact" class="py-32 px-6 max-w-3xl mx-auto">
         <div class="text-center mb-16">
             <div class="slabel justify-center mb-6">Get Started</div>
-            <h2 class="text-4xl font-light mb-4">Private Consultation</h2>
-            <p class="text-zinc-500 font-sans uppercase tracking-widest text-xs">By Invitation Only</p>
+            <h2 class="text-4xl font-light mb-4">Deploy Juno for<br><span class="italic gold-text">your business</span></h2>
+            <p class="text-zinc-500 font-sans text-sm max-w-sm mx-auto leading-relaxed">Tell us about your business and call volume — we'll scope your agent and have it live in 14 days.</p>
         </div>
 
         <div class="contact-wrap fade-in">
@@ -2429,52 +2863,52 @@
     <footer id="site-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-top">
-                <!-- Brand -->
+                <!-- Brand col -->
                 <div>
-                    <div class="footer-logo-text">JUNO</div>
-                    <p class="footer-tagline">AI Voice Concierge for New Jersey small businesses. Zero missed leads,
-                        24/7 call answering, live in 14 days.</p>
-
-                    <!-- Felix LinkedIn -->
-                    <a href="https://www.linkedin.com/in/felix-de-balanzo-23578124a/" target="_blank" rel="noopener"
-                        style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:28px;font-family:'DM Sans',sans-serif;font-size:.78rem;color:#555;transition:color .3s;"
-                        onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#555'">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="opacity:.6;">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
+                    <a href="#hero" style="text-decoration:none;">
+                        <img src="public/logo-nav.png" alt="Perpetual Concierge" style="height:48px;width:auto;display:block;margin-bottom:20px;opacity:.85;">
+                    </a>
+                    <p class="footer-tagline">AI voice concierge for NJ small businesses. Never miss a lead again.</p>
+                    <a href="https://www.linkedin.com/in/felix-de-balanzo-23578124a/" target="_blank" rel="noopener" class="footer-call" style="margin-bottom:20px;">
+                        <span class="footer-call-dot"></span>
                         Felix de Balanzo
                     </a>
-
-                    <p class="footer-demo-label">Try live demos</p>
-                    <div style="display:flex;flex-direction:column;gap:6px;">
-                        <a href="tel:2014500206" class="footer-call">
-                            <span class="footer-call-dot"></span>NJ Antique Buyers — (201) 450-0206
-                        </a>
-                        <a href="tel:2016404084" class="footer-call">
-                            <span class="footer-call-dot"></span>Clar Fine Violins — (201) 640-4084
-                        </a>
-                    </div>
+                    <p class="footer-demo-label">Try it live</p>
+                    <a href="tel:+18556839697" class="footer-call">
+                        <span class="footer-call-dot"></span>
+                        +1 (855) 683-9697
+                    </a>
                 </div>
 
                 <!-- Nav grid -->
                 <div class="footer-nav-grid">
-                    <div class="footer-col">
+                    <div>
                         <p class="footer-col-title">Navigate</p>
-                        <a href="#demo">How It Works</a>
-                        <a href="#industries">Industries</a>
-                        <a href="#results">Results</a>
-                        <a href="#about">About</a>
-                        <a href="#faq">FAQ</a>
-                        <a href="#contact">Contact</a>
+                        <div class="footer-col">
+                            <a href="#demo">How It Works</a>
+                            <a href="#industries">Industries</a>
+                            <a href="#results">Results</a>
+                            <a href="#about">About</a>
+                            <a href="#faq">FAQ</a>
+                            <a href="#contact">Contact</a>
+                        </div>
                     </div>
-                    <div class="footer-col">
+                    <div>
                         <p class="footer-col-title">Industries</p>
-                        <a href="ai-concierge-auto-body-shops.html">Auto Body Shops</a>
-                        <a href="ai-concierge-estate-sale-companies.html">Estate Sales</a>
-                        <a href="ai-concierge-jewelry-pawn-shops.html">Jewelry & Pawn</a>
-                        <a href="ai-concierge-home-restoration-contractors.html">Restoration</a>
-                        <a href="ai-concierge-furniture-consignment-stores.html">Consignment</a>
+                        <div class="footer-col">
+                            <a href="#industries">Sealcoating</a>
+                            <a href="#industries">Landscaping</a>
+                            <a href="#industries">Roofing</a>
+                            <a href="#industries">HVAC</a>
+                            <a href="#industries">Plumbing</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="footer-col-title">Legal</p>
+                        <div class="footer-col">
+                            <a href="/privacy-policy.html">Privacy Policy</a>
+                            <a href="/terms.html">Terms of Service</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2482,18 +2916,8 @@
             <div class="gold-line"></div>
 
             <div class="footer-bottom">
-                <span>Perpetual Concierge &copy; 2026 &nbsp;·&nbsp; All Rights Reserved</span>
-                <a href="https://www.linkedin.com/in/mario-almandoz-423643236/" target="_blank" rel="noopener"
-                    style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.72rem;color:#444;letter-spacing:.1em;transition:color .3s;padding:6px 12px;border:1px solid #112B4A;transition:all .3s;"
-                    onmouseover="this.style.color='#3B82F6';this.style.borderColor='rgba(59,130,246,.25)'"
-                    onmouseout="this.style.color='#444';this.style.borderColor='#112B4A'">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
-                        style="opacity:.6;flex-shrink:0;">
-                        <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                    Mario Almandoz &nbsp;·&nbsp; Developer
-                </a>
+                <span>&copy; 2026 Perpetual Concierge &mdash; All Rights Reserved</span>
+                <a href="https://www.linkedin.com/in/mario-almandoz-423643236/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#60A5FA'" onmouseout="this.style.color='inherit'">Built by Mario Almandoz</a>
             </div>
         </div>
     </footer>
@@ -2587,6 +3011,35 @@
             });
         }, { threshold: 0.07 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        /* ── Animated counters ── */
+        function animateCounter(el) {
+            const target = el.dataset.target;
+            const isFloat = target.includes('.');
+            const numeric = parseFloat(target.replace(/[^0-9.]/g, ''));
+            const suffix = target.replace(/[0-9.]/g, '');
+            const duration = 1600;
+            const start = performance.now();
+            function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const value = isFloat
+                    ? (ease * numeric).toFixed(1)
+                    : Math.round(ease * numeric);
+                el.textContent = value + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        const counterObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
     </script>
 
     <!--Start of Tawk.to Script-->
