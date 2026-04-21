@@ -2,5 +2,9 @@
   "version": 2,
   "buildCommand": "",
   "outputDirectory": ".",
-  "installCommand": ""
+  "installCommand": "",
+  "rewrites": [
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" }
+  ]
 }
