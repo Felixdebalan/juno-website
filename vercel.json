@@ -5,6 +5,7 @@
   "installCommand": "",
   "rewrites": [
     { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/privacy-policy", "destination": "/privacy-policy.html" }
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/consent", "destination": "/consent.html" }
   ]
 }
